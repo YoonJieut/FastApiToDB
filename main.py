@@ -25,4 +25,4 @@ async def get_table_names():
     response = httpx.get(url)
     response.raise_for_status()  # 오류 발생 시 예외를 일으킴
     table_names = response.json()  # JSON 데이터 추출
-    return {"8001 요청": table_names}
+    return table_names
