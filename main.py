@@ -1,6 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 import mysql.connector
+import boto3
+
 
 app = FastAPI()
 
@@ -12,6 +14,7 @@ app.add_middleware(
     allow_methods=["GET", "POST", "PUT", "DELETE"],
     allow_headers=["*"],
 )
+
 
 # GET 요청이 오면 {"Hello": "World"}를 JSON 형태로 반환
 @app.get("/")
@@ -40,3 +43,18 @@ async def get_table_names():
     table_names = [table[0] for table in tables]
     return {"tables": table_names}
   
+
+
+# S3 객체 업로드
+s3 = boto3.client('s3')
+s3.upload_file('local_file_path', 'bucket_name', 'object_key')
+
+# 데이터베이스에 이미지 URL 저장
+cursor = db_connection.cursor()
+cursor.execute("INSERT INTO images (name, file_path) VALUES (%s, %s)", (name, s3_object_url))
+db_connection.commit()
+
+# 데이터베이스에서 이미지 URL 불러오기
+cursor.execute("SELECT file_path FROM images WHERE id = %s", (image_id,))
+result = cursor.fetchone()
+image_url = result[0]
