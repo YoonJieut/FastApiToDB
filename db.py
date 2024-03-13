@@ -1,18 +1,27 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
-from db.config import db_config
 import mysql.connector
 
+app = FastAPI()
 
-mydb = mysql.connector.connect(
-    host=db_config.host,
-    port=db_config.port,
-    user=db_config.user,
-    password=db_config.password,
-    database=db_config.database
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_headers=["*"],
 )
 
-app = FastAPI()
+db_config = {
+    "host": "127.0.0.1",
+    "port": "3306",
+    "user": "root",
+    "password": "0000",
+    "database": "test_database"
+}
+
+mydb = mysql.connector.connect(**db_config)
 
 @app.get('/')
 async def read_root():
