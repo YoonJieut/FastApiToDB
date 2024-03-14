@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import UploadImage from "./(component)/UploadImage";
 
 export default function Home() {
   const [tables, setTables] = useState([]);
-
   useEffect(() => {
     // main.py의 /table 엔드포인트로 GET 요청을 보냅니다.
     fetch("http://localhost:8000/table")
@@ -28,6 +28,7 @@ export default function Home() {
           ))}
         </ul>
       </div>
+      <UploadImage />
     </main>
   );
 }
