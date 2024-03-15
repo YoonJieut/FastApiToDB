@@ -1,0 +1,14 @@
+{
+  "name": "fastapitodb",
+  "version": "1.0.0",
+  "description": "- APP SERVER : app router 방식\r - REST API SERVER : fast api 어떻게 쓸까? (flask, express와 다르지 않음)\r   - 왜 하필 이거일까?\r     - Django : mvt방식이라 템플릿 찍어냄\r     - flask : 마이크로, 비동기 x\r   - 어떻게 돌아갈지 확인\r - DB : mariaDB\r   - CRUD 테스팅\r   - 매개변수 까지만 만들면 된다.\r - stroage\r   - 스토리지 서버는 왜 필요할까?",
+  "main": "nodeStorage.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "luxon": "^3.4.4"
+  }
+}
