@@ -1,5 +1,4 @@
 import os
-import re
 from datetime import datetime
 
 def nowTime():
@@ -9,15 +8,13 @@ def nowTime():
 def generateYoonValues(name, index):
     for i in range(1, index):
         #현재시간
-        
-        
-        
         now = nowTime()
         directory_name = f'{now}'+' '+f'{name}-{i}'
         
         #파일 생성
         os.makedirs(directory_name)
         directory_path = f'{directory_name}'
+        
         # print(directory_path)  
         if os.path.exists(directory_path):
             print("디렉토리가 존재합니다.")
@@ -27,10 +24,5 @@ def generateYoonValues(name, index):
         else:
             print("디렉토리가 존재하지 않습니다.")
             continue
-            
 
 generateYoonValues('yoon',3)
-
-
-
-    
