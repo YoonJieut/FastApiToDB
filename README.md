@@ -1,16 +1,22 @@
 # 스켈레톤 만들기
 
 - APP SERVER : app router 방식
+
 - REST API SERVER : fast api 어떻게 쓸까? (flask, express와 다르지 않음)
+
   - 왜 하필 이거일까?
     - Django : mvt방식이라 템플릿 찍어냄
     - flask : 마이크로, 비동기 x
   - 어떻게 돌아갈지 확인
+
 - DB : mariaDB
+
   - CRUD 테스팅
   - 매개변수 까지만 만들면 된다.
+
 - stroage
   - 스토리지 서버는 왜 필요할까?
+  - 파일을 분류하고 저장하는 인덱싱에 필요하다.
 
 # 관련 명령어 정리
 
@@ -64,3 +70,5 @@ def generateYoonValues(name, index):
 ```
 
 ## node.js 파일 시스템 체크
+
+## python 기본 반복문 활용에 필요한 메서드 뜯어보기
